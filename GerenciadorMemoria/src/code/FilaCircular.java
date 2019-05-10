@@ -44,17 +44,20 @@ package code;
        }    
       
      }
-     public void removerFilaC (){
+     public int removerFilaC (){
          if(isFilaVazia()){
              System.out.println("Erro fila vazia");
-             return;
+             return 0;
          }
          Integer filaNova [] = new Integer [vetor.length-1];
           for (int i = 1; i < vetor.length; i++) {
               filaNova[i-1]= vetor[i];  
           }
+          int valor;
+          valor = vetor[0];
           vetor=filaNova;
           quantidade--;
+          return valor;
      }
      
      public void print() {
