@@ -41,6 +41,7 @@ public class paginaInicial extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtLimiarMax = new javax.swing.JTextField();
         txtTamHeap = new javax.swing.JTextField();
+        btnVerAloc = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -69,14 +70,19 @@ public class paginaInicial extends javax.swing.JFrame {
             }
         });
 
-        btnSequencial.setText("EXECUTAR SEQUENC");
+        btnSequencial.setText("EXECUTAR SEQUENCIAL");
         btnSequencial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSequencialActionPerformed(evt);
             }
         });
 
-        jButton3.setText("EXECUTAR PARAL");
+        jButton3.setText("EXECUTAR PARALELAMENTE");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         btnHeap.setText("VER HEAP");
         btnHeap.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +95,13 @@ public class paginaInicial extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("LIMIAR MÁXIMO");
+
+        btnVerAloc.setText("VER ALOCADOS");
+        btnVerAloc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerAlocActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -112,20 +125,22 @@ public class paginaInicial extends javax.swing.JFrame {
                             .addComponent(txtLimiarMax)
                             .addComponent(txtTamHeap, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAdicionar)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnAdicionar)
-                                .addGap(37, 37, 37)
+                                .addGap(25, 25, 25)
+                                .addComponent(btnHeap)))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnVerAloc)
+                                .addGap(43, 43, 43)
+                                .addComponent(btnVetReq))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btnSequencial)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(btnHeap)
-                                .addGap(117, 117, 117)
-                                .addComponent(btnVetReq)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jButton3)))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +173,8 @@ public class paginaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnHeap)
-                    .addComponent(btnVetReq))
+                    .addComponent(btnVetReq)
+                    .addComponent(btnVerAloc))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -216,6 +232,9 @@ public class paginaInicial extends javax.swing.JFrame {
             txtNumRequi.setText("");
             txtLimiarMax.setText("");
             
+            vetorHeap.setTamanho(tamanho);
+            criarRequisicoes(fila);
+            
             JOptionPane.showMessageDialog(null, "Dados inseridos com sucesso! ");    
         }
     }//GEN-LAST:event_btnAdicionarActionPerformed
@@ -223,21 +242,35 @@ public class paginaInicial extends javax.swing.JFrame {
     private void btnSequencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSequencialActionPerformed
         
         //Inicializo o heap
-        vetorHeap.setTamanho(tamanho);
-        criarRequisicoes(fila);
+//        vetorHeap.setTamanho(tamanho);
+//        criarRequisicoes(fila);
         vetorHeap.inserirHeap(limiarMaximo, fila);
-        
+        JOptionPane.showMessageDialog(null, "Execução sequencial concluída com sucesso! ");    
+
         
     }//GEN-LAST:event_btnSequencialActionPerformed
 
     private void btnHeapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeapActionPerformed
         
-        for(int i = 0;i<vetorHeap.getQuantidade();i++)
+        for(int i = 0;i<vetorHeap.getTamanho();i++)
         {
-            System.out.println("valor:"+vetorHeap.vetor[vetorHeap.getQuantidade()]);
+            System.out.println("POSIÇÃO="+i+";VALOR="+vetorHeap.vetor[i]);
         }
 
     }//GEN-LAST:event_btnHeapActionPerformed
+
+    private void btnVerAlocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlocActionPerformed
+        
+        for(int i = 0;i<vetorHeap.getQuantidade();i++)
+        {
+            System.out.println("POSIÇÃO="+i+";VALOR="+vetorHeap.alocados[i]);
+        }
+
+    }//GEN-LAST:event_btnVerAlocActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     //Manipulação da minha fila, ou seja, geração de valores randomicos para ela
     public static void criarRequisicoes(FilaCircular f)
@@ -246,7 +279,7 @@ public class paginaInicial extends javax.swing.JFrame {
         Random aleatorio = new Random();
         for(int i = 0; i< 100; i++)
         {
-            numero = aleatorio.nextInt((10000-0) + 1) + 0;  //random.nextInt((maximo - minimo) + 1) + minimo;
+            numero = aleatorio.nextInt(100) + 1;  //random.nextInt((maximo - minimo) + 1) + minimo;
             f.incluirFilaC(numero);
         }
     }
@@ -305,6 +338,7 @@ public class paginaInicial extends javax.swing.JFrame {
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnHeap;
     private javax.swing.JButton btnSequencial;
+    private javax.swing.JButton btnVerAloc;
     private javax.swing.JButton btnVetReq;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton7;

@@ -54,7 +54,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -75,25 +75,29 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnAdicionar" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnAdicionar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="btnHeap" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btnVerAloc" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Component id="btnVetReq" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
                                   <Component id="btnSequencial" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="btnHeap" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                                  <Component id="btnVetReq" min="-2" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -135,6 +139,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnHeap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnVetReq" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnVerAloc" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -190,7 +195,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnSequencial">
           <Properties>
-            <Property name="text" type="java.lang.String" value="EXECUTAR SEQUENC"/>
+            <Property name="text" type="java.lang.String" value="EXECUTAR SEQUENCIAL"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSequencialActionPerformed"/>
@@ -198,8 +203,11 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="EXECUTAR PARAL"/>
+            <Property name="text" type="java.lang.String" value="EXECUTAR PARALELAMENTE"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnHeap">
           <Properties>
@@ -225,6 +233,14 @@
         <Component class="javax.swing.JTextField" name="txtLimiarMax">
         </Component>
         <Component class="javax.swing.JTextField" name="txtTamHeap">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVerAloc">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="VER ALOCADOS"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerAlocActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
