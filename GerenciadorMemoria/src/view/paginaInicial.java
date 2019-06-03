@@ -252,12 +252,14 @@ public class paginaInicial extends javax.swing.JFrame {
             txtNumRequi.setText("");
             txtLimiarMax.setText("");
             
-            fila.setTAMANHO(numRequisicoes); //vou atender a essa quantidade
-            vetorHeap.setTamanho(tamanho);
-            criarRequisicoes(fila, RequisicaoMin, RequisicaoMax);
-            
             int num = 0;
             num = tamanho * 256;
+            
+            fila.setTAMANHO(numRequisicoes); //vou atender a essa quantidade
+            vetorHeap.setTamanho(num);
+            criarRequisicoes(fila, RequisicaoMin, RequisicaoMax);
+            
+            
             
             if(RequisicaoMax > num){
                 JOptionPane.showMessageDialog(null, "Tamanho de requisicao máximo maior que o permitido. Insira novamente os dados ");

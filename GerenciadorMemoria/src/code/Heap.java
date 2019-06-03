@@ -76,7 +76,7 @@ public class Heap {
            }
        //    System.out.println("Valor de quantidade:"+quantidade);
        }else{
-           System.out.println("Estouro de memória!"); //Não tem espaço livre, desaloco um espaço para ele e não mexo na compactação
+          // System.out.println("Estouro de memória!"); //Não tem espaço livre, desaloco um espaço para ele e não mexo na compactação
         //   controle = 1;
            //preciso guardar essas requisições que NÃO ESTÃO SENDO ALOCADAS POR FALTA DE ESPAÇO
            retiraHeap(percent);
@@ -98,7 +98,7 @@ public class Heap {
                alocados[itensNaHeap] = valorReq;
                itensNaHeap++;
            }else{
-               System.out.println("Alocados cheia!!");
+            //   System.out.println("Alocados cheia!!");
            }
          
    }
@@ -137,7 +137,7 @@ public class Heap {
             retiradoHeap = alocados[i];
             if(retiradoHeap == 0)
             {
-                System.out.println("Espaço vazio!!!!!");
+            //    System.out.println("Espaço vazio!!!!!");
             }else{
 //                System.out.println("Retirado foi:"+ retiradoHeap);
                 alocados[i] = 0;
