@@ -10,9 +10,7 @@ public class Heap {
     public int[] vetor = new int[tamanho];
     public int quantidade;
     public int[]alocados = new int[tamanho];
-    public int itensNaHeap = 0;
-    public int cuidaTamanho=0;
-    
+    public int itensNaHeap = 0;    
     
     public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
@@ -47,7 +45,7 @@ public class Heap {
 //       System.out.println("***Requisição***");
 //       System.out.println(valorReq);
 //       System.out.println("***");
-       
+//       
        //Alocar na heap
        int total = 0;
        total = tamanho - quantidade;
@@ -55,7 +53,6 @@ public class Heap {
        percent = tamanho * max;
        percent = percent/100;
       // System.out.println("Valor de percentual:"+percent);
-       int controle = 0;
        
 //       cuidaTamanho = cuidaTamanho + valorReq;
        
@@ -80,12 +77,21 @@ public class Heap {
        //    System.out.println("Valor de quantidade:"+quantidade);
        }else{
            System.out.println("Estouro de memória!"); //Não tem espaço livre, desaloco um espaço para ele e não mexo na compactação
-           controle = 1;
+        //   controle = 1;
            //preciso guardar essas requisições que NÃO ESTÃO SENDO ALOCADAS POR FALTA DE ESPAÇO
+           retiraHeap(percent);
+               total = tamanho - quantidade;
+               if(valorReq < total)
+               {
+                   for(int i = 0; i < valorReq; i++)
+                   {
+                    vetor[quantidade] = 1;
+//               System.out.println("Valor aqui dentro="+vetor[quantidade]);
+                    quantidade++;    
+                   }
+               }
        }
-       
-       if(controle == 0)
-       {
+      
             //Para guardar quem tá na HEAP
            if(itensNaHeap < tamanho)
            {
@@ -94,7 +100,6 @@ public class Heap {
            }else{
                System.out.println("Alocados cheia!!");
            }
-       }
          
    }
 
