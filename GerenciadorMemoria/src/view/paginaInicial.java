@@ -26,6 +26,7 @@ public class paginaInicial extends javax.swing.JFrame {
         jOptionPane1 = new javax.swing.JOptionPane();
         jButton7 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jMenu1 = new javax.swing.JMenu();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -44,12 +45,16 @@ public class paginaInicial extends javax.swing.JFrame {
         txtTamHeap = new javax.swing.JTextField();
         btnVerAloc = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        btnVerDadosIns = new javax.swing.JButton();
+        btnTempoExec = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
         jButton7.setText("jButton7");
 
         jLabel7.setText("jLabel7");
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de memória - Sistemas Operacionais");
@@ -114,6 +119,20 @@ public class paginaInicial extends javax.swing.JFrame {
 
         jLabel8.setText("%");
 
+        btnVerDadosIns.setText("VER DADOS INSERIDOS");
+        btnVerDadosIns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerDadosInsActionPerformed(evt);
+            }
+        });
+
+        btnTempoExec.setText("VER TEMPO DE EXECUÇÃO");
+        btnTempoExec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTempoExecActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -122,38 +141,42 @@ public class paginaInicial extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(btnHeap)
+                        .addGap(93, 93, 93)
+                        .addComponent(btnVerAloc))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
+                            .addComponent(jLabel6)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel6))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNumRequi)
-                            .addComponent(txtTamMax)
-                            .addComponent(txtTamMin)
-                            .addComponent(txtLimiarMax)
-                            .addComponent(txtTamHeap, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdicionar)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(btnHeap)))
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnVerAloc)
-                                .addGap(43, 43, 43)
-                                .addComponent(btnVetReq))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnSequencial)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVerDadosIns)
+                                    .addComponent(btnAdicionar))
                                 .addGap(18, 18, 18)
-                                .addComponent(btnExecParalelamente)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSequencial)
+                                    .addComponent(btnTempoExec))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNumRequi)
+                                    .addComponent(txtTamMax)
+                                    .addComponent(txtTamMin)
+                                    .addComponent(txtLimiarMax)
+                                    .addComponent(txtTamHeap, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVetReq)
+                                    .addComponent(btnExecParalelamente))))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,6 +213,10 @@ public class paginaInicial extends javax.swing.JFrame {
                     .addComponent(btnHeap)
                     .addComponent(btnVetReq)
                     .addComponent(btnVerAloc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerDadosIns)
+                    .addComponent(btnTempoExec))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -197,9 +224,7 @@ public class paginaInicial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +245,10 @@ public class paginaInicial extends javax.swing.JFrame {
     public  int tamanho = 0;
     public  int limiarMaximo = 0;
     public int acerto = 0;
-    
+    long inicioSeq = 0;
+    long fimSeq = 0;
+    long inicioParal = 0;
+    long fimParal = 0;
     
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         //O que acontece se eu clicar em Adicionar dados? Quero que os dados das caixas de texto sejam inseridas em variáveis
@@ -274,7 +302,7 @@ public class paginaInicial extends javax.swing.JFrame {
     private void btnSequencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSequencialActionPerformed
         if(acerto == 1)
         {
-            long inicio = System.currentTimeMillis();  
+            inicioSeq = System.currentTimeMillis();  
         
 //                for(int i = 0; i< numRequisicoes; i++)
 //                {
@@ -293,8 +321,8 @@ public class paginaInicial extends javax.swing.JFrame {
             
         }
 
-            long fim  = System.currentTimeMillis();  
-            long tempo = fim - inicio;
+            fimSeq  = System.currentTimeMillis();  
+            long tempo = fimSeq - inicioSeq;
             JOptionPane.showMessageDialog(null, "Execução sequencial concluída com sucesso! Tempo de="+tempo+"ms");    
         }else{
             JOptionPane.showMessageDialog(null, "Não é possivel executar. Insira novamente os dados"); 
@@ -323,7 +351,10 @@ public class paginaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerAlocActionPerformed
 
     private void btnExecParalelamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecParalelamenteActionPerformed
-
+        
+     
+        
+        
     }//GEN-LAST:event_btnExecParalelamenteActionPerformed
 
     private void btnVetReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVetReqActionPerformed
@@ -332,6 +363,24 @@ public class paginaInicial extends javax.swing.JFrame {
         fila.print();
 
     }//GEN-LAST:event_btnVetReqActionPerformed
+
+    private void btnVerDadosInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDadosInsActionPerformed
+        System.out.println("******");
+        System.out.println("--> O tamanho da HEAP escolhido foi="+tamanho+" que resultou em="+tamanho*256);
+        System.out.println("--> Intervalo das requisições é: mínimo="+RequisicaoMin+" máximo="+RequisicaoMax);
+        System.out.println("--> Total de requisições geradas="+numRequisicoes);
+        System.out.println("--> O limiar máximo que a memória atinge é="+limiarMaximo+"%");
+        System.out.println("******");
+
+    }//GEN-LAST:event_btnVerDadosInsActionPerformed
+
+    private void btnTempoExecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTempoExecActionPerformed
+        
+        long tempoSeq = fimSeq - inicioSeq;
+        
+        JOptionPane.showMessageDialog(null, "Tempo de execução sequencial é ="+tempoSeq+"ms");    
+        
+    }//GEN-LAST:event_btnTempoExecActionPerformed
 
     //Função auxiliar de gerar números
     public static int gerador(int min, int max) {
@@ -395,7 +444,9 @@ public class paginaInicial extends javax.swing.JFrame {
     private javax.swing.JButton btnExecParalelamente;
     private javax.swing.JButton btnHeap;
     private javax.swing.JButton btnSequencial;
+    private javax.swing.JButton btnTempoExec;
     private javax.swing.JButton btnVerAloc;
+    private javax.swing.JButton btnVerDadosIns;
     private javax.swing.JButton btnVetReq;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -406,6 +457,7 @@ public class paginaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtLimiarMax;
