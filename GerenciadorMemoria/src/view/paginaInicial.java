@@ -3,6 +3,8 @@ package view;
 
 import code.FilaCircular;
 import code.Heap;
+import code.segmentos;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -40,11 +42,8 @@ public class paginaInicial extends javax.swing.JFrame {
         btnExecParalelamente = new javax.swing.JButton();
         btnHeap = new javax.swing.JButton();
         btnVetReq = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        txtLimiarMax = new javax.swing.JTextField();
         txtTamHeap = new javax.swing.JTextField();
         btnVerAloc = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         btnVerDadosIns = new javax.swing.JButton();
         btnTempoExec = new javax.swing.JButton();
 
@@ -107,17 +106,12 @@ public class paginaInicial extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel6.setText("LIMIAR MÁXIMO");
-
         btnVerAloc.setText("VER ALOCADOS");
         btnVerAloc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerAlocActionPerformed(evt);
             }
         });
-
-        jLabel8.setText("%");
 
         btnVerDadosIns.setText("VER DADOS INSERIDOS");
         btnVerDadosIns.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +132,7 @@ public class paginaInicial extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
@@ -150,7 +144,6 @@ public class paginaInicial extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel4)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,16 +160,12 @@ public class paginaInicial extends javax.swing.JFrame {
                                     .addComponent(txtNumRequi)
                                     .addComponent(txtTamMax)
                                     .addComponent(txtTamMin)
-                                    .addComponent(txtLimiarMax)
-                                    .addComponent(txtTamHeap, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8))
+                                    .addComponent(txtTamHeap, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnVetReq)
-                                    .addComponent(btnExecParalelamente))))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                                    .addComponent(btnExecParalelamente)))))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,13 +186,7 @@ public class paginaInicial extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtNumRequi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtLimiarMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8)))
-                .addGap(18, 18, 18)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionar)
                     .addComponent(btnSequencial)
@@ -243,12 +226,13 @@ public class paginaInicial extends javax.swing.JFrame {
     public  int RequisicaoMin = 0;
     public static  int numRequisicoes = 0;
     public  int tamanho = 0;
-    public  int limiarMaximo = 0;
     public int acerto = 0;
     long inicioSeq = 0;
     long fimSeq = 0;
     long inicioParal = 0;
     long fimParal = 0;
+    
+
     
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         //O que acontece se eu clicar em Adicionar dados? Quero que os dados das caixas de texto sejam inseridas em variáveis
@@ -271,18 +255,16 @@ public class paginaInicial extends javax.swing.JFrame {
             x = txtNumRequi.getText();
             numRequisicoes = Integer.parseInt(x);
             x = "";
-            x = txtLimiarMax.getText();
-            limiarMaximo = Integer.parseInt(x);
+        
             
             txtTamHeap.setText("");
             txtTamMin.setText("");
             txtTamMax.setText("");
             txtNumRequi.setText("");
-            txtLimiarMax.setText("");
             
             int num = 0;
-            num = tamanho * 256;
-            
+            //num = tamanho * 256;
+            num = tamanho;
             fila.setTAMANHO(numRequisicoes); //vou atender a essa quantidade
             vetorHeap.setTamanho(num);
             criarRequisicoes(fila, RequisicaoMin, RequisicaoMax);
@@ -316,8 +298,8 @@ public class paginaInicial extends javax.swing.JFrame {
         {
            // System.out.println("Entrei");
             requisicao = fila.removerFilaC();
-            vetorHeap.inserirHeap(limiarMaximo, fila, requisicao);
-            //vetorHeap.inserirHeap(limiarMaximo, fila, i);
+        //    System.out.println("Valor da requisição="+requisicao);
+            vetorHeap.inserirHeap(fila, requisicao);
             
         }
 
@@ -327,26 +309,18 @@ public class paginaInicial extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Não é possivel executar. Insira novamente os dados"); 
         }
-
     }//GEN-LAST:event_btnSequencialActionPerformed
 
     private void btnHeapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeapActionPerformed
         
         System.out.println("A Heap é:");
-        for(int i = 0;i<vetorHeap.getTamanho();i++)
-        {
-            System.out.println("POSIÇÃO="+i+";VALOR="+vetorHeap.vetor[i]);
-        }
+
 
     }//GEN-LAST:event_btnHeapActionPerformed
 
     private void btnVerAlocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlocActionPerformed
         System.out.println("Vetor de alocados é:");
         
-        for(int i = 0;i<vetorHeap.getQuantidade();i++)
-        {
-            System.out.println("POSIÇÃO="+i+";VALOR="+vetorHeap.alocados[i]);
-        }
 
     }//GEN-LAST:event_btnVerAlocActionPerformed
 
@@ -369,7 +343,6 @@ public class paginaInicial extends javax.swing.JFrame {
         System.out.println("--> O tamanho da HEAP escolhido foi="+tamanho+" que resultou em="+tamanho*256);
         System.out.println("--> Intervalo das requisições é: mínimo="+RequisicaoMin+" máximo="+RequisicaoMax);
         System.out.println("--> Total de requisições geradas="+numRequisicoes);
-        System.out.println("--> O limiar máximo que a memória atinge é="+limiarMaximo+"%");
         System.out.println("******");
 
     }//GEN-LAST:event_btnVerDadosInsActionPerformed
@@ -454,13 +427,10 @@ public class paginaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtLimiarMax;
     private javax.swing.JTextField txtNumRequi;
     private javax.swing.JTextField txtTamHeap;
     private javax.swing.JTextField txtTamMax;
