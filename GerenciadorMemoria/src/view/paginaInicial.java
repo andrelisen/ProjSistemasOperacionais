@@ -43,7 +43,7 @@ public class paginaInicial extends javax.swing.JFrame {
         btnHeap = new javax.swing.JButton();
         btnVetReq = new javax.swing.JButton();
         txtTamHeap = new javax.swing.JTextField();
-        btnVerAloc = new javax.swing.JButton();
+        btnVerOcup = new javax.swing.JButton();
         btnVerDadosIns = new javax.swing.JButton();
         btnTempoExec = new javax.swing.JButton();
 
@@ -106,10 +106,10 @@ public class paginaInicial extends javax.swing.JFrame {
             }
         });
 
-        btnVerAloc.setText("VER ALOCADOS");
-        btnVerAloc.addActionListener(new java.awt.event.ActionListener() {
+        btnVerOcup.setText("VER OCUPADOS");
+        btnVerOcup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerAlocActionPerformed(evt);
+                btnVerOcupActionPerformed(evt);
             }
         });
 
@@ -138,7 +138,7 @@ public class paginaInicial extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(btnHeap)
                         .addGap(93, 93, 93)
-                        .addComponent(btnVerAloc))
+                        .addComponent(btnVerOcup))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -195,7 +195,7 @@ public class paginaInicial extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnHeap)
                     .addComponent(btnVetReq)
-                    .addComponent(btnVerAloc))
+                    .addComponent(btnVerOcup))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVerDadosIns)
@@ -262,16 +262,12 @@ public class paginaInicial extends javax.swing.JFrame {
             txtTamMax.setText("");
             txtNumRequi.setText("");
             
-            int num = 0;
-            //num = tamanho * 256;
-            num = tamanho;
             fila.setTAMANHO(numRequisicoes); //vou atender a essa quantidade
-            vetorHeap.setTamanho(num);
             criarRequisicoes(fila, RequisicaoMin, RequisicaoMax);
             
             
             
-            if(RequisicaoMax > num){
+            if(RequisicaoMax > tamanho){
                 JOptionPane.showMessageDialog(null, "Tamanho de requisicao máximo maior que o permitido. Insira novamente os dados ");
                 
             }else{
@@ -292,17 +288,28 @@ public class paginaInicial extends javax.swing.JFrame {
 //                }
 
         int requisicao = 0;
-//        int i = 1;
+        int i = 1;
+        int verifica = 0;
         
         while(fila.verifica() != true)// enquanto não estiver vazia
         {
            // System.out.println("Entrei");
             requisicao = fila.removerFilaC();
         //    System.out.println("Valor da requisição="+requisicao);
-            vetorHeap.inserirHeap(fila, requisicao);
+          //  vetorHeap.inserirHeap(fila, requisicao);
+          if(i == 10)
+          {
+              i=9;
+          }
+            verifica = vetorHeap.inserirHeap(i);
             
+                while(verifica != 0){
+                    verifica = vetorHeap.inserirHeap(i);
+                }
+        
+          i++;
         }
-
+       // vetorHeap.imprimirHeap();
             fimSeq  = System.currentTimeMillis();  
             long tempo = fimSeq - inicioSeq;
             JOptionPane.showMessageDialog(null, "Execução sequencial concluída com sucesso! Tempo de="+tempo+"ms");    
@@ -314,15 +321,17 @@ public class paginaInicial extends javax.swing.JFrame {
     private void btnHeapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeapActionPerformed
         
         System.out.println("A Heap é:");
-
+        
+       vetorHeap.imprimirHeap();
 
     }//GEN-LAST:event_btnHeapActionPerformed
 
-    private void btnVerAlocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlocActionPerformed
-        System.out.println("Vetor de alocados é:");
+    private void btnVerOcupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerOcupActionPerformed
+        System.out.println("Vetor de ocupados é:");
         
+        vetorHeap.imprimirOcupados();
 
-    }//GEN-LAST:event_btnVerAlocActionPerformed
+    }//GEN-LAST:event_btnVerOcupActionPerformed
 
     private void btnExecParalelamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecParalelamenteActionPerformed
         
@@ -418,8 +427,8 @@ public class paginaInicial extends javax.swing.JFrame {
     private javax.swing.JButton btnHeap;
     private javax.swing.JButton btnSequencial;
     private javax.swing.JButton btnTempoExec;
-    private javax.swing.JButton btnVerAloc;
     private javax.swing.JButton btnVerDadosIns;
+    private javax.swing.JButton btnVerOcup;
     private javax.swing.JButton btnVetReq;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;

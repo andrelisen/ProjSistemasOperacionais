@@ -75,7 +75,7 @@
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="btnHeap" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                          <Component id="btnVerAloc" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnVerOcup" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -151,7 +151,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnHeap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnVetReq" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnVerAloc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnVerOcup" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -244,12 +244,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtTamHeap">
         </Component>
-        <Component class="javax.swing.JButton" name="btnVerAloc">
+        <Component class="javax.swing.JButton" name="btnVerOcup">
           <Properties>
-            <Property name="text" type="java.lang.String" value="VER ALOCADOS"/>
+            <Property name="text" type="java.lang.String" value="VER OCUPADOS"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerAlocActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerOcupActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVerDadosIns">
