@@ -98,14 +98,12 @@ public class Heap {
        if(valorReq > tamanhoDisponivel)
        {
            System.out.println("Entrou no valor requisicao maior que tamanho disponivel");
-//           if(somatorio() >= valorReq){
-//               compacta();
-//           }else{
-//           desalocar();
-//           }
-//           
-//           return valorReq;
-           
+           if(somatorio() >= valorReq){
+              compacta();
+           }else{
+           desalocar();
+           }
+           return valorReq;
        }else{
            //Posso inserir na heap
            //removo livre[0] e insiro um novo com as posições livres que sobraram e ordeno
@@ -137,6 +135,7 @@ public class Heap {
             //preciso matar esse processo ja que nao tem nd disponivel
                   livres.remove(0);
                   desalocar();
+//                  compacta();
                   System.out.println("Posicao e tamanho igual a total, ja solucionei desalocando o maior elemento");
               }else{
                   System.out.println("Meu novo livre=tamanho:"+tamNovo+";posicao="+posicao);
@@ -145,12 +144,11 @@ public class Heap {
                     livres.set(0, s);
                     Collections.sort(livres);
               }
-              
+         imprimirHeap();     
          return 0;
          
        }
        
-       return 0;
 //       System.out.println("----------------------------depois------------------");
 //       System.out.println("A heap");
 //       imprimirHeap();
@@ -166,9 +164,12 @@ public class Heap {
    
    public int somatorio(){
         int soma = 0;
-        for(segmentos s : livres)
+        int t = livres.size();
+        
+        for(int i = 0; i<t; i++)
         {
-            soma = s.getTamanho();
+            segmentos s = livres.get(i);
+            soma = soma + s.getTamanho();
         }
         return soma;
     }
@@ -200,56 +201,73 @@ public class Heap {
 
    }
    
-   public void compacta()
+      public void compacta()
    {
-       int tamanho = 0;
-       int inicio = 0;
-       int deslocamento = 0;
-       int inicioOcupados = 0;
-       int cont = 0;
-       int verifica = 0;
-       int posicao = 0;
-      
-           for(segmentos s : livres)
-           {
-               tamanho=s.getTamanho();
-               inicio = s.getInicio();
-               deslocamento = tamanho + inicio;
-               
-               for(segmentos oc : ocupados)
-               {
-                   inicioOcupados = oc.getInicio();
-                   if(deslocamento == inicioOcupados)
-                   {
-                      for(int i = 0;i<oc.getTamanho();i++){
-                          System.out.println("Inicio="+inicio);
-                          System.out.println("Inicio ocupados="+inicioOcupados);
-                          vetorHeap[inicio]=vetorHeap[inicioOcupados];
-                          vetorHeap[inicioOcupados] = 0;
-                          inicio++;
-                          inicioOcupados++;
-                      }
-                      oc.setInicio(inicioOcupados);
+    
+       System.out.println("Compactando................");
+       int soma = 0;
+       int inicio1 = 0;
+       int inicio2 = 0;
+       int contador = 0;
+       
+        int tamanhoLivres = livres.size();
+        int tamanhoOcupados = ocupados.size();
+        
+        
+       while(contador < tamanhoTotal)
+        {
+
+                for(int i = 0; i<tamanhoLivres; i++)
+                {
+                   segmentos livre = livres.get(i);
+                   inicio1 = livre.getInicio();
+                   soma = livre.getInicio()+livre.getTamanho();
+                    for(int j = 0; j < tamanhoOcupados; j++)
+                    {
+                       segmentos ocupado = ocupados.get(j);
+                       inicio2 = ocupado.getInicio();
+                       if(soma == ocupado.getInicio() && vetorHeap[ocupado.getInicio()]==1){
+
+                           System.out.println("Entrei no if");
+
+                           for(int k = 0; k< ocupado.getTamanho();k++){
+                               vetorHeap[inicio1]= vetorHeap[inicio2];
+                               vetorHeap[inicio2]=0;
+                               inicio1++;
+                               inicio2++;  
+                           }
+
+                           livre.setInicio(livre.getInicio()+ocupado.getTamanho());
+                           livres.set(i, livre);
+                           ocupado.setInicio(ocupado.getInicio()-livre.getTamanho());
+                           ocupados.set(j, ocupado);
+
+                       }
                    }
-               }
-               posicao = posicao + inicio;
-               imprimirHeap();
+               }           
+          contador++;
+       }
+       
+       int novoTamanho = 0;
+       int posicao = tamanhoTotal;
+       
+       for(int k = 0; k < tamanhoLivres; k++)
+       {
+           segmentos s = livres.get(k);
+           if(posicao > s.getInicio())
+           {
+               posicao = s.getInicio();
            }
-           
-            for(segmentos s : livres)
-            {
-                tamanho = tamanho + s.getTamanho();
-            }
-
-            int r = livres.size();
-
-            for(int i = 0; i<r; i++){
-                livres.remove(0);
-            }
-            
-           // segmentos n = new segmentos(posicao, tamanho);
-          //  System.out.println("Meu vetorzão de livres é=[T]"+tamanho+"[I]"+posicao);
-           
-
+           novoTamanho = novoTamanho + s.getTamanho();
+       }
+      
+       
+       for(int k = 0; k<tamanhoLivres; k++){
+           livres.remove(0);
+       }
+       
+       segmentos novo = new segmentos(posicao, novoTamanho);
+       livres.add(novo);
+       
    }
 }
