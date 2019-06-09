@@ -14,6 +14,7 @@ public class Heap {
     public int[] vetorHeap = new int[tamanhoTotal];
     public int contador=0;
     public int percentualMem = 0;
+    public int quantidadeHeap = 0;
     List<segmentos> ocupados = new ArrayList<segmentos>();   //List<String> x = new ArrayList<String>();
     List <segmentos> livres = new ArrayList<segmentos>(); //inicialmente toda a heap está livre
     
@@ -77,13 +78,13 @@ public class Heap {
 //       imprimirLivres();
 //       System.out.println("-----------------------fim do antes------------------");
 //    
-//       if(quantidadeHeap >= percentualMem)
-//       {
-//           //Preciso desalocar pois está MUITO ocupada 
-//           //Preciso mandar o valor da requisição para poder alocar pois ele retorna direto para o while
-//           System.out.println("Memória ocupada cerca de 80% da sua capacidade total...");
-//          // desalocar();
-//       }
+       if(quantidadeHeap >= percentualMem)
+       {
+           //Preciso desalocar pois está MUITO ocupada 
+           //Preciso mandar o valor da requisição para poder alocar pois ele retorna direto para o while
+           System.out.println("Memória ocupada cerca de 80% da sua capacidade total...");
+           desalocar();
+       }
        
        segmentos s = livres.get(0);
        
@@ -91,13 +92,13 @@ public class Heap {
        posicao = s.getInicio();//posição de inicío de espaços livres
        int tamanhoDisponivel = 0;
        tamanhoDisponivel = s.getTamanho();
-       System.out.println("Retirado de livres para leitura: ->Tamanho="+tamanhoDisponivel+";->Posicao="+posicao);
+     //  System.out.println("Retirado de livres para leitura: ->Tamanho="+tamanhoDisponivel+";->Posicao="+posicao);
   
        
        
        if(valorReq > tamanhoDisponivel)
        {
-           System.out.println("Entrou no valor requisicao maior que tamanho disponivel");
+           //System.out.println("Entrou no valor requisicao maior que tamanho disponivel");
            if(somatorio() >= valorReq){
               compacta();
            }else{
@@ -108,9 +109,7 @@ public class Heap {
            //Posso inserir na heap
            //removo livre[0] e insiro um novo com as posições livres que sobraram e ordeno
            //insiro em ocupados e ordeno
-          // System.out.println("Consegui inserir tranquilamente na HEAP....");
            segmentos novo = new segmentos(posicao, valorReq);
-        //   System.out.println("Meu ocupado novo é=posicao:"+posicao+";tamanho:"+valorReq);
         
             if(ocupados.size()==0){
                 ocupados.add(novo);
@@ -122,42 +121,32 @@ public class Heap {
             
              for(int i = 0;i<valorReq; i++)
             {
-             System.out.println("**POSICAO="+posicao);
+           //  System.out.println("**POSICAO="+posicao);
              vetorHeap[posicao]=1;
              posicao++;
+             quantidadeHeap++;
             }
            
                int tamNovo = 0;
                tamNovo = tamanhoDisponivel - valorReq;
            
-              if(tamNovo == 0 && posicao == tamanhoTotal)
-              {
-            //preciso matar esse processo ja que nao tem nd disponivel
-                  livres.remove(0);
-                  desalocar();
-//                  compacta();
-                  System.out.println("Posicao e tamanho igual a total, ja solucionei desalocando o maior elemento");
-              }else{
-                  System.out.println("Meu novo livre=tamanho:"+tamNovo+";posicao="+posicao);
+//              if(tamNovo == 0 && posicao == tamanhoTotal)
+//              {
+//            //preciso matar esse processo ja que nao tem nd disponivel
+//                  livres.remove(0);
+//                  desalocar();
+//                  System.out.println("Posicao e tamanho igual a total, ja solucionei desalocando o maior elemento");
+//              }else{
+              //    System.out.println("Meu novo livre=tamanho:"+tamNovo+";posicao="+posicao);
                     s.setInicio(posicao);
                     s.setTamanho(tamNovo);
                     livres.set(0, s);
                     Collections.sort(livres);
-              }
-         imprimirHeap();     
+//              }
+        // imprimirHeap();     
          return 0;
          
        }
-       
-//       System.out.println("----------------------------depois------------------");
-//       System.out.println("A heap");
-//       imprimirHeap();
-//       System.out.println("A lista de ocupados");
-//       imprimirOcupados();
-//       System.out.println("A lista de livres");
-//       imprimirLivres();
-//       System.out.println("-----------------------fim do depois------------------");
-//    
 
    }
 
@@ -184,13 +173,14 @@ public class Heap {
            segmentos s = ocupados.get(0);//pega maior
            t = s.getTamanho();
            inicio = s.getInicio();
-           System.out.println("Vou desalocar essa posição da lista: tamanho="+t+";e o inicio="+inicio);
+           //System.out.println("Vou desalocar essa posição da lista: tamanho="+t+";e o inicio="+inicio);
 
            
            for(int i = 0; i<t; i++)
            {
                vetorHeap[inicio] = 0;
                inicio++;
+               quantidadeHeap--;
            }
        
            livres.add(s);

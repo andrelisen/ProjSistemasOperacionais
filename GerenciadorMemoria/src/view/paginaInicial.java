@@ -281,35 +281,23 @@ public class paginaInicial extends javax.swing.JFrame {
         if(acerto == 1)
         {
             inicioSeq = System.currentTimeMillis();  
-        
-//                for(int i = 0; i< numRequisicoes; i++)
-//                {
-//                vetorHeap.inserirHeap(limiarMaximo, fila);
-//                }
+   
 
-        int requisicao = 0;
-        int i = 1;
-        int verifica = 0;
+            int requisicao = 0;
+            int verifica = 0;
+
+            while(fila.verifica() != true)// enquanto não estiver vazia
+            {
+
+                requisicao = fila.removerFilaC();
+
+                verifica = vetorHeap.inserirHeap(requisicao);
+
+                    while(verifica != 0){
+                        verifica = vetorHeap.inserirHeap(requisicao);
+                    }
+           }
         
-        while(fila.verifica() != true)// enquanto não estiver vazia
-        {
-           // System.out.println("Entrei");
-            requisicao = fila.removerFilaC();
-        //    System.out.println("Valor da requisição="+requisicao);
-          //  vetorHeap.inserirHeap(fila, requisicao);
-          if(i == 10)
-          {
-              i=9;
-          }
-            verifica = vetorHeap.inserirHeap(i);
-            
-                while(verifica != 0){
-                    verifica = vetorHeap.inserirHeap(i);
-                }
-        
-          i++;
-        }
-       // vetorHeap.imprimirHeap();
             fimSeq  = System.currentTimeMillis();  
             long tempo = fimSeq - inicioSeq;
             JOptionPane.showMessageDialog(null, "Execução sequencial concluída com sucesso! Tempo de="+tempo+"ms");    
@@ -320,7 +308,7 @@ public class paginaInicial extends javax.swing.JFrame {
 
     private void btnHeapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeapActionPerformed
         
-        System.out.println("A Heap é:");
+        System.out.println("A Heap ficou como:");
         
        vetorHeap.imprimirHeap();
 
