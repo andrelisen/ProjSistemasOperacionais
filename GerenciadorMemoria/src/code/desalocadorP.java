@@ -25,8 +25,8 @@ public class desalocadorP extends Thread {
     
     @Override
     public void run() {
-        for(;;)
-        {
+       for(;;)
+       {
             try {
                 gestor.desaloc.acquire();
             } catch (InterruptedException ex) {
@@ -43,11 +43,11 @@ public class desalocadorP extends Thread {
     public void desalocar() throws InterruptedException
    {
        
-       int x = 0;
-       while(x<10)
+       for(int i = 0;i<5;i++)
        {
-           System.out.println("Estou no desalocar e o contador é="+x);
-           x++;
+                System.out.println("Esta no desalocador");
+       heap.vetor[heap.quantidade]=30;
+       heap.quantidade++;
        }
        gestor.aloc.release();
        gestor.desaloc.acquire();

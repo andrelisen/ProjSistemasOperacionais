@@ -15,5 +15,6 @@ public class gestorSemaforo {
     
     Semaphore aloc = new Semaphore(0);
     Semaphore desaloc = new Semaphore(0);
+    volatile int verificacao = 0;
     
 }

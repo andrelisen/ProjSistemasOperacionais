@@ -21,7 +21,8 @@ public class alocadorP extends Thread {
     
     @Override
     public void run(){
-        for(;;)
+      //  for(;;)
+        while(gestor.verificacao ==0)
         {
             gestor.aloc.release();//liberei fiquei com 1
             try {
@@ -35,7 +36,7 @@ public class alocadorP extends Thread {
                 Logger.getLogger(alocadorP.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-       
+       heap.imprimir();
     }
     
     public alocadorP(HeapParalela heap,FilaCircular fila, gestorSemaforo gestor) {
@@ -47,17 +48,17 @@ public class alocadorP extends Thread {
    
      public void inserirHeap() throws InterruptedException
    {
-       int x = 0;
-       while(x < 50)
+       for(int i = 0;i<5;i++)
        {
-           System.out.println("Oi, estou aqui dentro do inserir na heap e o contador está em="+x);
-           x++;
-       
+           System.out.println("Esta no alocador");
+       heap.vetor[heap.quantidade]=10;
+       heap.quantidade++;
        }
        
        gestor.desaloc.release();
        gestor.aloc.acquire();
-       
+        gestor.verificacao=1;
+      
 //       while(fila.verifica() != true)
 //       {
 //           synchronized(heap){ //preciso bloquear para não ter inserção na hr da leitura
