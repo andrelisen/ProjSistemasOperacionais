@@ -349,12 +349,12 @@ public class paginaInicial extends javax.swing.JFrame {
             gestorSemaforo gs = new gestorSemaforo();
 
             Thread t1 = new Thread(new alocadorP(vetorHeapParalela, filaParalela, gs));
+           // Thread t3 = new Thread(new alocadorP(vetorHeapParalela, filaParalela, gs));
             Thread t2 = new Thread(new desalocadorP(vetorHeapParalela, gs));
             t1.start();
             t2.start();
+         //   t3.start();
 
-
-            System.out.println("--Heap--");
             
             fimParal  = System.currentTimeMillis();  
             long tempo = fimParal - inicioParal;

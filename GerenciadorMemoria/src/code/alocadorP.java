@@ -31,12 +31,13 @@ public class alocadorP extends Thread {
                 Logger.getLogger(alocadorP.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                inserirHeap();
+                inserirHeap(0);
             } catch (InterruptedException ex) {
                 Logger.getLogger(alocadorP.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
        heap.imprimir();
+       heap.naoatendi();
     }
     
     public alocadorP(HeapParalela heap,FilaCircular fila, gestorSemaforo gestor) {
@@ -46,88 +47,94 @@ public class alocadorP extends Thread {
     }
     
    
-     public void inserirHeap() throws InterruptedException
+     public void inserirHeap(int condicao) throws InterruptedException
    {
-       for(int i = 0;i<5;i++)
+       int requisicao = 0;
+       if(condicao == 0){
+       requisicao = fila.removerFilaC();
+       }else{
+           requisicao = condicao;
+       }
+               
+       if(heap.quantidade >= heap.percentual)
        {
-           System.out.println("Esta no alocador");
-       heap.vetor[heap.quantidade]=10;
-       heap.quantidade++;
+           gestor.desaloc.release();//liberei desalocador e sigo inserindo
+          // gestor.aloc.acquire();
+       }
+
+        segmentos s;
+        synchronized(heap.livres){
+            s = heap.livres.get(0);
+        }
+       
+       int posicao = 0;
+       posicao = s.getInicio();//posição de inicío de espaços livres
+       int tamanhoDisponivel = 0;
+       tamanhoDisponivel = s.getTamanho();
+
+       if(requisicao > tamanhoDisponivel)
+       {
+           if(heap.somatorio >= requisicao){
+               //tenho espaço disponível mas não é contíguo 
+               //compactar();
+               System.out.println("Compactar??");
+           }else{
+               gestor.desaloc.release();
+               gestor.aloc.acquire();
+           }
+           heap.vetorNaoatendi[heap.contador++]=requisicao;
+           heap.contador++;
+           inserirHeap(requisicao);
+           
+       }else{
+           segmentos novo = new segmentos(posicao, requisicao);
+           
+           if(heap.ocupados.size()==0){
+               heap.ocupados.add(novo);
+           }else{
+               
+               heap.ocupados.add(novo);
+               
+               synchronized(heap.ocupados){
+                   Collections.sort(heap.ocupados);
+               }
+               
+               synchronized(heap.vetor){
+                  for(int i = 0; i<requisicao; i++)
+                  {
+                      heap.vetor[posicao] = 1;
+                      posicao++;
+                      heap.quantidade++; 
+                  } 
+               }
+               
+               int novoTamanho = 0;
+               novoTamanho = tamanhoDisponivel - requisicao;
+               
+               synchronized(s){
+                   s.setInicio(posicao);
+                   s.setTamanho(novoTamanho);
+               }
+               
+               synchronized(heap.livres){
+                   heap.livres.set(0, s);
+                   Collections.sort(heap.livres);
+               }
+               
+               heap.somarPosicoesLivres();
+               
+               
+           }
+           
+           if(fila.verifica()==true){
+                   gestor.verificacao=1;
+           }
+           
        }
        
-       gestor.desaloc.release();
-       gestor.aloc.acquire();
-        gestor.verificacao=1;
-      
-//       while(fila.verifica() != true)
-//       {
-//           synchronized(heap){ //preciso bloquear para não ter inserção na hr da leitura
-//           
-//           if(heap.quantidadeHeap >= heap.percentualMem)
-//           {
-//           //Preciso desalocar pois está MUITO ocupada 
-//           //Preciso mandar o valor da requisição para poder alocar pois ele retorna direto para o while
-//        //   System.out.println("Memória ocupada cerca de 80% da sua capacidade total...");
-//           //preciso acordar a thread de desalocação
-//           
-//          // desalocar();
-//           }
-//           
-//       }
-//       
-//       
-//       
-//       segmentos s = heap.livres.get(0);
-//       
-//       int posicao = 0;
-//       posicao = s.getInicio();//posição de inicío de espaços livres
-//       int tamanhoDisponivel = 0;
-//       tamanhoDisponivel = s.getTamanho();
-//     //  System.out.println("Retirado de livres para leitura: ->Tamanho="+tamanhoDisponivel+";->Posicao="+posicao);
-//  
-//       
-//       
-//       if(valorReq > tamanhoDisponivel)
-//       {
-//           //System.out.println("Entrou no valor requisicao maior que tamanho disponivel");
-//           if(heap.somatorio>= valorReq){
-//              compacta();
-//           }else{
-//               //mando ela dormir e acordo outra thread
-//           //desalocar();
-//           }
-//           return valorReq;
-//       }
-//       else{
-//           //Posso inserir na heap
-//           //removo livre[0] e insiro um novo com as posições livres que sobraram e ordeno
-//           //insiro em ocupados e ordeno
-//           segmentos novo = new segmentos(posicao, valorReq);
-//        
-//            if(heap.ocupados.size()==0){
-//                heap.ocupados.add(novo);
-//            }else{
-//                heap.ocupados.add(novo);
-//                
-//                synchronized(heap){
-//                Collections.sort(heap.ocupados);
-//                }
-//                
-//            }
-//        
-//            
-//             for(int i = 0;i<valorReq; i++)
-//            {
-//           //  System.out.println("**POSICAO="+posicao);
-//             heap.vetorHeap[posicao]=1;
-//             posicao++;
-//             heap.quantidadeHeap++;
-//            }
-//           
-//               int tamNovo = 0;
-//               tamNovo = tamanhoDisponivel - valorReq;
-//           
-//               
+
+
+
 //                    s.setInicio(posicao);
 //                    s.setTamanho(tamNovo);
 //                    heap.livres.set(0, s);
