@@ -3,6 +3,10 @@ package view;
 
 import code.FilaCircular;
 import code.Heap;
+import code.HeapParalela;
+import code.alocadorP;
+import code.desalocadorP;
+import code.gestorSemaforo;
 import code.segmentos;
 import java.util.ArrayList;
 import java.util.Random;
@@ -219,8 +223,9 @@ public class paginaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //Criando as minhas estruturas que serão usadas 
-    Heap vetorHeap = new Heap(); //Lembrando que o tamanho dela é setado pelo usuário
-    FilaCircular fila = new FilaCircular();//Essa fila é o meu vetor de requisições
+    Heap vetorHeap = new Heap(); //Lembrando que o tamanho dela é setado pelo usuário - estrutura sequencial
+    FilaCircular fila = new FilaCircular();//Essa fila é o meu vetor de requisições - estrutura sequencial
+    FilaCircular filaParalela = new FilaCircular();//Essa fila é o meu vetor de requisições - estrutura paralela
     //As variáveis de que não posso perder as referências
     public  int RequisicaoMax = 0;
     public  int RequisicaoMin = 0;
@@ -231,8 +236,8 @@ public class paginaInicial extends javax.swing.JFrame {
     long fimSeq = 0;
     long inicioParal = 0;
     long fimParal = 0;
+    HeapParalela vetorHeapParalela = new HeapParalela(); //Lembrando que o tamanho dela é setado pelo usuário - estrutura sequencial
     
-
     
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         //O que acontece se eu clicar em Adicionar dados? Quero que os dados das caixas de texto sejam inseridas em variáveis
@@ -245,6 +250,7 @@ public class paginaInicial extends javax.swing.JFrame {
             String x = txtTamHeap.getText(); //recebo valor que o usuário inseriu para o tamanho da heap
             tamanho = Integer.parseInt(x);
             vetorHeap.setTamanho(tamanho);
+            vetorHeapParalela.setTamanhodaHeap(tamanho);
             x = "";//limpo variável
             x = txtTamMin.getText();
             RequisicaoMin = Integer.parseInt(x);
@@ -262,8 +268,10 @@ public class paginaInicial extends javax.swing.JFrame {
             txtTamMax.setText("");
             txtNumRequi.setText("");
             
-            fila.setTAMANHO(numRequisicoes); //vou atender a essa quantidade
-            criarRequisicoes(fila, RequisicaoMin, RequisicaoMax);
+            fila.setTAMANHO(numRequisicoes); //vou atender a essa quantidade - sequencial
+            filaParalela.setTAMANHO(numRequisicoes); // - paralela
+            criarRequisicoes(fila, RequisicaoMin, RequisicaoMax); //criando fila sequencial
+            criarRequisicoes(filaParalela, RequisicaoMin, RequisicaoMax);//criando fila paralela 
             
             
             
@@ -276,7 +284,7 @@ public class paginaInicial extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnAdicionarActionPerformed
-
+       
     private void btnSequencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSequencialActionPerformed
         if(acerto == 1)
         {
@@ -308,10 +316,9 @@ public class paginaInicial extends javax.swing.JFrame {
 
     private void btnHeapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeapActionPerformed
         
-        System.out.println("A Heap ficou como:");
-        
-       vetorHeap.imprimirHeap();
-
+        System.out.println("---A Heap sequencial---");
+        vetorHeap.imprimirHeap();
+       
     }//GEN-LAST:event_btnHeapActionPerformed
 
     private void btnVerOcupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerOcupActionPerformed
@@ -323,7 +330,38 @@ public class paginaInicial extends javax.swing.JFrame {
 
     private void btnExecParalelamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecParalelamenteActionPerformed
         
-     
+        //isso é minha main
+        
+        if(acerto == 1)
+        {
+            inicioParal = System.currentTimeMillis();  
+   
+            /*gestorSemaforo gestor = new gestorSemaforo();
+        new Thread(new minhaThread(gestor)).start();     */
+            //alocadorP(HeapParalela heap, gestorSemaforo gs, FilaCircular fila) 
+            
+           
+//            alocadorP t1 = new alocadorP(vetorHeapParalela,  filaParalela);
+//            desalocadorP t2 = new desalocadorP(vetorHeapParalela);
+//            t1.start();
+//            t2.start();
+//           
+            gestorSemaforo gs = new gestorSemaforo();
+
+            Thread t1 = new Thread(new alocadorP(vetorHeapParalela, filaParalela, gs));
+            Thread t2 = new Thread(new desalocadorP(vetorHeapParalela, gs));
+            t1.start();
+            t2.start();
+
+
+            System.out.println("--Heap--");
+            
+            fimParal  = System.currentTimeMillis();  
+            long tempo = fimParal - inicioParal;
+            JOptionPane.showMessageDialog(null, "Execução paralela concluída com sucesso! Tempo de="+tempo+"ms");    
+        }else{
+            JOptionPane.showMessageDialog(null, "Não é possivel executar. Insira novamente os dados"); 
+        }
         
         
     }//GEN-LAST:event_btnExecParalelamenteActionPerformed
@@ -331,13 +369,15 @@ public class paginaInicial extends javax.swing.JFrame {
     private void btnVetReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVetReqActionPerformed
             
         System.out.println("O vetor de requisições é");
+        System.out.println("---Sequencial---");
         fila.print();
+        
 
     }//GEN-LAST:event_btnVetReqActionPerformed
 
     private void btnVerDadosInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDadosInsActionPerformed
         System.out.println("******");
-        System.out.println("--> O tamanho da HEAP escolhido foi="+tamanho+" que resultou em="+tamanho*256);
+        System.out.println("--> O tamanho da HEAP escolhido foi="+tamanho);
         System.out.println("--> Intervalo das requisições é: mínimo="+RequisicaoMin+" máximo="+RequisicaoMax);
         System.out.println("--> Total de requisições geradas="+numRequisicoes);
         System.out.println("******");

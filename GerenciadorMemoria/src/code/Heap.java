@@ -44,22 +44,26 @@ public class Heap {
         for(int i = 0; i<tamanhoTotal;i++)
         {
             //System.out.println("["+i+"]"+"="+vetorHeap[i]);
-            System.out.println(vetorHeap[i]);
+            System.out.println("["+i+"]="+vetorHeap[i]);
         }
     }
     
     public void imprimirLivres()
     {
+        System.out.println("---------------------------");
         for(segmentos s : livres){
             System.out.println("Inicio="+s.getInicio()+";Tamanho="+s.getTamanho());
         }
+        System.out.println("---------------------------");
     }
 
     public void imprimirOcupados()
     {
+        System.out.println("---------------------------");
         for(segmentos s : ocupados){
             System.out.println("Inicio="+s.getInicio()+";Tamanho="+s.getTamanho());
         }
+        System.out.println("---------------------------");
     }
     
     
@@ -67,22 +71,13 @@ public class Heap {
    {
        //Qual será a métrica para retirar segmentos e alocar eles na lista de segmentos livres? Não posso ter mais de 80% do total da memória ocupada
 
-       System.out.println("Sua requisicao = "+valorReq);
-      
-//       System.out.println("----------------------------antes------------------");
-//       System.out.println("A heap");
-//       imprimirHeap();
-//       System.out.println("A lista de ocupados");
-//       imprimirOcupados();
-//       System.out.println("A lista de livres");
-//       imprimirLivres();
-//       System.out.println("-----------------------fim do antes------------------");
-//    
+       //System.out.println("Sua requisicao = "+valorReq);
+
        if(quantidadeHeap >= percentualMem)
        {
            //Preciso desalocar pois está MUITO ocupada 
            //Preciso mandar o valor da requisição para poder alocar pois ele retorna direto para o while
-           System.out.println("Memória ocupada cerca de 80% da sua capacidade total...");
+          // System.out.println("Memória ocupada cerca de 80% da sua capacidade total...");
            desalocar();
        }
        
@@ -105,7 +100,8 @@ public class Heap {
            desalocar();
            }
            return valorReq;
-       }else{
+       }
+       else{
            //Posso inserir na heap
            //removo livre[0] e insiro um novo com as posições livres que sobraram e ordeno
            //insiro em ocupados e ordeno
@@ -130,20 +126,12 @@ public class Heap {
                int tamNovo = 0;
                tamNovo = tamanhoDisponivel - valorReq;
            
-//              if(tamNovo == 0 && posicao == tamanhoTotal)
-//              {
-//            //preciso matar esse processo ja que nao tem nd disponivel
-//                  livres.remove(0);
-//                  desalocar();
-//                  System.out.println("Posicao e tamanho igual a total, ja solucionei desalocando o maior elemento");
-//              }else{
-              //    System.out.println("Meu novo livre=tamanho:"+tamNovo+";posicao="+posicao);
+               
                     s.setInicio(posicao);
                     s.setTamanho(tamNovo);
                     livres.set(0, s);
                     Collections.sort(livres);
-//              }
-        // imprimirHeap();     
+
          return 0;
          
        }
@@ -187,14 +175,14 @@ public class Heap {
            Collections.sort(livres);
            
            ocupados.remove(0);
-           System.out.println("Desalocado com sucesso!!");
+        //   System.out.println("Desalocado com sucesso!!");
 
    }
    
       public void compacta()
    {
     
-       System.out.println("Compactando................");
+     //  System.out.println("Compactando................");
        int soma = 0;
        int inicio1 = 0;
        int inicio2 = 0;
@@ -218,7 +206,7 @@ public class Heap {
                        inicio2 = ocupado.getInicio();
                        if(soma == ocupado.getInicio() && vetorHeap[ocupado.getInicio()]==1){
 
-                           System.out.println("Entrei no if");
+                           //System.out.println("Entrei no if");
 
                            for(int k = 0; k< ocupado.getTamanho();k++){
                                vetorHeap[inicio1]= vetorHeap[inicio2];
