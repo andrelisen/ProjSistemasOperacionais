@@ -1,12 +1,11 @@
 
 package view;
 
+import code.Aloca;
+import code.Desaloca;
 import code.FilaCircular;
 import code.Heap;
-import code.HeapParalela;
-import code.alocadorP;
-import code.desalocadorP;
-import code.gestorSemaforo;
+import code.Paralelo;
 import code.segmentos;
 import java.util.ArrayList;
 import java.util.Random;
@@ -236,8 +235,9 @@ public class paginaInicial extends javax.swing.JFrame {
     long fimSeq = 0;
     long inicioParal = 0;
     long fimParal = 0;
-    HeapParalela vetorHeapParalela = new HeapParalela(); //Lembrando que o tamanho dela é setado pelo usuário - estrutura sequencial
-    
+    Paralelo pMonitor = new Paralelo();
+    Aloca a = new Aloca(pMonitor);
+    Desaloca d = new Desaloca(pMonitor);
     
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         //O que acontece se eu clicar em Adicionar dados? Quero que os dados das caixas de texto sejam inseridas em variáveis
@@ -250,7 +250,6 @@ public class paginaInicial extends javax.swing.JFrame {
             String x = txtTamHeap.getText(); //recebo valor que o usuário inseriu para o tamanho da heap
             tamanho = Integer.parseInt(x);
             vetorHeap.setTamanho(tamanho);
-            vetorHeapParalela.setTamanhodaHeap(tamanho);
             x = "";//limpo variável
             x = txtTamMin.getText();
             RequisicaoMin = Integer.parseInt(x);
@@ -270,9 +269,13 @@ public class paginaInicial extends javax.swing.JFrame {
             
             fila.setTAMANHO(numRequisicoes); //vou atender a essa quantidade - sequencial
             filaParalela.setTAMANHO(numRequisicoes); // - paralela
-            criarRequisicoes(fila, RequisicaoMin, RequisicaoMax); //criando fila sequencial
-            criarRequisicoes(filaParalela, RequisicaoMin, RequisicaoMax);//criando fila paralela 
+            criarRequisicoes(fila,filaParalela, RequisicaoMin, RequisicaoMax); //criando fila sequencial e paralela
             
+            //Paralelo pMonitor = new Paralelo();
+            pMonitor.setTamanho(tamanho);
+            pMonitor.setFila(filaParalela);
+            a = new Aloca(pMonitor);
+            d = new Desaloca(pMonitor);
             
             
             if(RequisicaoMax > tamanho){
@@ -285,6 +288,9 @@ public class paginaInicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAdicionarActionPerformed
        
+     
+    
+    
     private void btnSequencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSequencialActionPerformed
         if(acerto == 1)
         {
@@ -318,6 +324,8 @@ public class paginaInicial extends javax.swing.JFrame {
         
         System.out.println("---A Heap sequencial---");
         vetorHeap.imprimirHeap();
+        System.out.println("---A heap paralela---");
+        pMonitor.imprimirHeap();
        
     }//GEN-LAST:event_btnHeapActionPerformed
 
@@ -334,31 +342,18 @@ public class paginaInicial extends javax.swing.JFrame {
         
         if(acerto == 1)
         {
-            inicioParal = System.currentTimeMillis();  
-   
-            /*gestorSemaforo gestor = new gestorSemaforo();
-        new Thread(new minhaThread(gestor)).start();     */
-            //alocadorP(HeapParalela heap, gestorSemaforo gs, FilaCircular fila) 
-            
            
-//            alocadorP t1 = new alocadorP(vetorHeapParalela,  filaParalela);
-//            desalocadorP t2 = new desalocadorP(vetorHeapParalela);
-//            t1.start();
-//            t2.start();
-//           
-            gestorSemaforo gs = new gestorSemaforo();
-
-            Thread t1 = new Thread(new alocadorP(vetorHeapParalela, filaParalela, gs));
-           // Thread t3 = new Thread(new alocadorP(vetorHeapParalela, filaParalela, gs));
-            Thread t2 = new Thread(new desalocadorP(vetorHeapParalela, gs));
-            t1.start();
-            t2.start();
-         //   t3.start();
-
             
+            inicioParal = System.currentTimeMillis();  
+            a.start();
+            d.start();
             fimParal  = System.currentTimeMillis();  
+        
             long tempo = fimParal - inicioParal;
             JOptionPane.showMessageDialog(null, "Execução paralela concluída com sucesso! Tempo de="+tempo+"ms");    
+//            System.out.println("Sera que a heap foi??");
+//            pMonitor.imprimirHeap();
+//        
         }else{
             JOptionPane.showMessageDialog(null, "Não é possivel executar. Insira novamente os dados"); 
         }
@@ -371,6 +366,8 @@ public class paginaInicial extends javax.swing.JFrame {
         System.out.println("O vetor de requisições é");
         System.out.println("---Sequencial---");
         fila.print();
+        System.out.println("---Paralela---");
+        filaParalela.print();
         
 
     }//GEN-LAST:event_btnVetReqActionPerformed
@@ -399,7 +396,7 @@ public class paginaInicial extends javax.swing.JFrame {
     }
     
     //Manipulação da minha fila, ou seja, geração de valores randomicos para ela
-    public static void criarRequisicoes(FilaCircular f, int min, int max)
+    public static void criarRequisicoes(FilaCircular f1, FilaCircular f2, int min, int max)
     { //Inicialmente inicio a fila como cheia 
         int numero = 0;
        // int total = 0;
@@ -411,7 +408,8 @@ public class paginaInicial extends javax.swing.JFrame {
            // System.out.println("Valor da posicao:"+j);
            // j++;
            // total = total + numero;
-            f.incluirFilaC(numero);
+            f1.incluirFilaC(numero);
+            f2.incluirFilaC(numero);
         }
            // System.out.println("total e:"+total);
     }
