@@ -330,10 +330,12 @@ public class paginaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHeapActionPerformed
 
     private void btnVerOcupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerOcupActionPerformed
-        System.out.println("Vetor de ocupados é:");
-        
+        System.out.println("---Vetor de ocupados da execução sequencial é:---");
         vetorHeap.imprimirOcupados();
-
+        
+        System.out.println("---Vetor de ocupados da execução paralela é:---");
+        pMonitor.imprimirOcupados();
+        
     }//GEN-LAST:event_btnVerOcupActionPerformed
 
     private void btnExecParalelamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecParalelamenteActionPerformed
@@ -349,6 +351,7 @@ public class paginaInicial extends javax.swing.JFrame {
             d.start();
             fimParal  = System.currentTimeMillis();  
         
+            
             long tempo = fimParal - inicioParal;
             JOptionPane.showMessageDialog(null, "Execução paralela concluída com sucesso! Tempo de="+tempo+"ms");    
 //            System.out.println("Sera que a heap foi??");

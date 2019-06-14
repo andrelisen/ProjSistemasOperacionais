@@ -14,18 +14,20 @@ import java.util.logging.Logger;
  */
 public class Aloca extends Thread{
     Paralelo monitor;
-
+    
     public Aloca(Paralelo monitor) {
         this.monitor = monitor;
     }
     
     public void run() { 
         try {
+    
         //método que sobrescreve run da thread
         monitor.insere();
         } catch (InterruptedException ex) {
             Logger.getLogger(Aloca.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     
 }

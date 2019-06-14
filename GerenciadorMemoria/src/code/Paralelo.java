@@ -261,4 +261,23 @@ public class Paralelo {
         }
     }
    
+       public void imprimirLivres()
+    {
+        System.out.println("---------------------------");
+        for(segmentos s : livres){
+            System.out.println("Inicio="+s.getInicio()+";Tamanho="+s.getTamanho());
+        }
+        System.out.println("---------------------------");
+    }
+
+    public void imprimirOcupados()
+    {
+        System.out.println("---------------------------");
+        for(segmentos s : ocupados){
+            System.out.println("Inicio="+s.getInicio()+";Tamanho="+s.getTamanho());
+        }
+        System.out.println("---------------------------");
+    }
+     
+    
 }
