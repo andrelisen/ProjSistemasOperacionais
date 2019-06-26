@@ -1,6 +1,10 @@
 
 package code;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,7 +39,9 @@ public class Heap {
        this.percentualMem = tamanhoTotal * 80;
        this.percentualMem = this.percentualMem / 100;
         
-        this.vetorHeap = vector;
+       this.vetorHeap = vector;
+        
+
     }
 
     
@@ -67,12 +73,13 @@ public class Heap {
     }
     
     
-   public int inserirHeap(int valorReq)
+   public int inserirHeap(int valorReq, PrintWriter gravarArq)
    {
        //Qual será a métrica para retirar segmentos e alocar eles na lista de segmentos livres? Não posso ter mais de 80% do total da memória ocupada
 
        //System.out.println("Sua requisicao = "+valorReq);
 
+       
        if(quantidadeHeap >= percentualMem)
        {
            //Preciso desalocar pois está MUITO ocupada 
@@ -114,6 +121,8 @@ public class Heap {
                 Collections.sort(ocupados);
             }
         
+        //    System.out.println("SEQUENCIAL:Estou inserindo a seguinte requisição="+valorReq);
+            gravarArq.printf("%d %n", valorReq);
             
              for(int i = 0;i<valorReq; i++)
             {

@@ -1,14 +1,21 @@
 
 package view;
 
-import code.Aloca;
-import code.Desaloca;
+
+import code.Alocador;
+import code.Desalocador;
 import code.FilaCircular;
+import code.GestorSemaforos;
 import code.Heap;
-import code.Paralelo;
 import code.segmentos;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -235,9 +242,9 @@ public class paginaInicial extends javax.swing.JFrame {
     long fimSeq = 0;
     long inicioParal = 0;
     long fimParal = 0;
-    Paralelo pMonitor = new Paralelo();
-    Aloca a = new Aloca(pMonitor);
-    Desaloca d = new Desaloca(pMonitor);
+    GestorSemaforos gestor = new GestorSemaforos();
+
+    
     
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         //O que acontece se eu clicar em Adicionar dados? Quero que os dados das caixas de texto sejam inseridas em variáveis
@@ -249,7 +256,10 @@ public class paginaInicial extends javax.swing.JFrame {
         }else{
             String x = txtTamHeap.getText(); //recebo valor que o usuário inseriu para o tamanho da heap
             tamanho = Integer.parseInt(x);
+
             vetorHeap.setTamanho(tamanho);
+            gestor.setTamanho(tamanho);
+
             x = "";//limpo variável
             x = txtTamMin.getText();
             RequisicaoMin = Integer.parseInt(x);
@@ -271,11 +281,8 @@ public class paginaInicial extends javax.swing.JFrame {
             filaParalela.setTAMANHO(numRequisicoes); // - paralela
             criarRequisicoes(fila,filaParalela, RequisicaoMin, RequisicaoMax); //criando fila sequencial e paralela
             
-            //Paralelo pMonitor = new Paralelo();
-            pMonitor.setTamanho(tamanho);
-            pMonitor.setFila(filaParalela);
-            a = new Aloca(pMonitor);
-            d = new Desaloca(pMonitor);
+            
+         
             
             
             if(RequisicaoMax > tamanho){
@@ -295,23 +302,37 @@ public class paginaInicial extends javax.swing.JFrame {
         if(acerto == 1)
         {
             inicioSeq = System.currentTimeMillis();  
-   
+            
 
             int requisicao = 0;
             int verifica = 0;
+        
+                FileWriter arq = null;
+            try {
+                arq = new FileWriter((new File("arquivoSeq.txt")));
+            } catch (IOException ex) {
+                Logger.getLogger(paginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                PrintWriter gravarArq = new PrintWriter(arq);
 
             while(fila.verifica() != true)// enquanto não estiver vazia
             {
 
                 requisicao = fila.removerFilaC();
 
-                verifica = vetorHeap.inserirHeap(requisicao);
+                verifica = vetorHeap.inserirHeap(requisicao, gravarArq);
 
                     while(verifica != 0){
-                        verifica = vetorHeap.inserirHeap(requisicao);
+                        verifica = vetorHeap.inserirHeap(requisicao, gravarArq);
                     }
            }
-        
+            
+            try {
+                arq.close();
+            } catch (IOException ex) {
+                Logger.getLogger(paginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             fimSeq  = System.currentTimeMillis();  
             long tempo = fimSeq - inicioSeq;
             JOptionPane.showMessageDialog(null, "Execução sequencial concluída com sucesso! Tempo de="+tempo+"ms");    
@@ -325,7 +346,7 @@ public class paginaInicial extends javax.swing.JFrame {
         System.out.println("---A Heap sequencial---");
         vetorHeap.imprimirHeap();
         System.out.println("---A heap paralela---");
-        pMonitor.imprimirHeap();
+        gestor.imprimirHeap();
        
     }//GEN-LAST:event_btnHeapActionPerformed
 
@@ -334,7 +355,10 @@ public class paginaInicial extends javax.swing.JFrame {
         vetorHeap.imprimirOcupados();
         
         System.out.println("---Vetor de ocupados da execução paralela é:---");
-        pMonitor.imprimirOcupados();
+        gestor.imprimirOcupados();
+        
+        
+   //     pMonitor.imprimirOcupados();
         
     }//GEN-LAST:event_btnVerOcupActionPerformed
 
@@ -344,16 +368,49 @@ public class paginaInicial extends javax.swing.JFrame {
         
         if(acerto == 1)
         {
-           
+         /*Runnable paralelo = new RunnableHelloWorld();
+            paralelo.run();
+            Runnable paralelo = new RunnableHelloWorld();
+            Thread t1 = new Thread(paralelo);
+            */  
+     
+           // Runnable t1 = new 
             
-            inicioParal = System.currentTimeMillis();  
-            a.start();
-            d.start();
-            fimParal  = System.currentTimeMillis();  
-        
+          //  gestor.inicializarArquivo();
             
-            long tempo = fimParal - inicioParal;
-            JOptionPane.showMessageDialog(null, "Execução paralela concluída com sucesso! Tempo de="+tempo+"ms");    
+            
+            Runnable t1 = new Alocador(gestor, filaParalela);
+            Runnable t2 = new Desalocador(gestor);
+            
+            
+            Thread aloc = new Thread(t1);
+            
+            
+            
+            Thread desaloca = new Thread(t2);
+            //inicioSeq = System.currentTimeMillis();  
+            long tempoInicial = System.currentTimeMillis();
+        //    System.out.println("Inicio="+tempoInicial);
+            
+            aloc.start();
+            desaloca.start();
+            
+            long tempoFinal = 0;
+            long tempo = 0;
+            
+            while(gestor.getVerificacao() == 0){
+                tempoFinal = gestor.getTempoFinal();
+                tempo = tempoFinal - tempoInicial;
+            }
+            
+            
+        //    System.out.println("Tempo de execução é="+tempo);
+                
+            if(gestor.getVerificacao() == 1){
+               JOptionPane.showMessageDialog(null, "Execução paralela concluída com sucesso! Tempo de="+tempo+"ms");    
+                
+            }
+            
 //            System.out.println("Sera que a heap foi??");
 //            pMonitor.imprimirHeap();
 //        
