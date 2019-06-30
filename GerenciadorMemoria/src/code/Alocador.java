@@ -9,6 +9,7 @@
  */
 package code;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,35 +38,58 @@ public class Alocador implements Runnable {
         try {
             while(gestor.getVerificacao() == 0){//para poder rodar sempre a thread sem parar
                 inserir();
-                
             }
         }  catch (InterruptedException ex) {
+            Logger.getLogger(Alocador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(Alocador.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
 
-    public void inserir() throws InterruptedException {
+    public void inserir() throws InterruptedException, IOException {
         
         int valorReq = 0 ;
         int a = 0; 
         int b = 0; 
        
-       
+          //  File arquivo = new File( "arquivoParalelo.txt" );
+
+          //   PrintWriter escreve = null;
+          //   FileWriter arq = null;
+                     
+            
+
         while(fila.verifica()!=true){
        //    gestor.gravarArq.print("Alocando %n ");
             valorReq = fila.removerFilaC();
-        //    System.out.println("Valor da requisicao é="+valorReq);
+        
+            //try {
+                //construtor que recebe também como argumento se o conteúdo será acrescentado
+                //ao invés de ser substituído (append)
+              //  arq = new FileWriter( arquivo, true );
+              //  escreve = new PrintWriter(arq);
+                
+            //} catch (IOException ex) {
+           //     Logger.getLogger(Alocador.class.getName()).log(Level.SEVERE, null, ex);
+           // }
+            
+            //    System.out.println("Valor da requisicao é="+valorReq);
             
             if(gestor.quantidadeHeap >= gestor.percentualMem)
             {
-       //     gestor.gravarArq.printf("Entrou no if em que a quantidade de elementos contidos na heap é maior que o meu percentual de elementos que posso ter na "
-        //           + "Heap, desaloca! %n ");
-         //    System.out.println("Quantidade heap maior");
-             gestor.d.release();
-         //    System.out.println("Valor do semaforo desalocador="+gestor.d.availablePermits());
-             gestor.a.acquire();
-         //       System.out.println("seguiu");
+                //escreve.printf("Entrou no if em que a quantidade de elementos contidos na heap é maior que o meu percentual de elementos que posso ter"
+                  //      + "na Heap, desaloca!%n");
+              //  System.out.println("Entrou no if em que a quantidade de elementos contidos na heap é maior que o meu percentual de elementos que posso ter"
+              //          + "na Heap, desaloca!");
+             
+                // arq.close();
+                // escreve.close();
+                 gestor.d.release();
+                 gestor.a.acquire();
+                 
+                 //arq = new FileWriter( arquivo, true );
+                 //escreve = new PrintWriter(arq);
             }
             
                segmentos s = gestor.livres.get(0);
@@ -81,16 +105,30 @@ public class Alocador implements Runnable {
            if(valorReq > tamanhoDisponivel)
            {
               
-                   
-           //       gestor.gravarArq.printf("Minha requisição é maior do que o tamanho disponível na Heap, desaloca!%n");
+               // escreve.printf("Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=%d;Tamanho disponível=%d %n",
+                   //     valorReq, tamanhoDisponivel);
+            //    System.out.println("Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; req="+valorReq+";tam="+tamanhoDisponivel);
+               
                    while(valorReq > tamanhoDisponivel){
                       
                        if(somatorio() >= valorReq){
-                             compacta();
+                 //           escreve.printf("Mandei compactar%n");
+                        //    System.out.println("Mandei compactar");
+                            //quebra de linha
+                
+                           compacta();
                         }else{
-                            System.out.println("dentro do while");
-                            gestor.d.release();
-                            gestor.a.acquire();
+               //             escreve.printf("Mesmo compactando não tem espaço suficiente, desaloca!%n");
+                       //     System.out.println("mesmo compactando n tem espaco suficiente");
+                             
+                           //  arq.close();
+                           //  escreve.close();
+                             gestor.d.release();
+                             gestor.a.acquire();
+
+                           //  arq = new FileWriter( arquivo, true );
+                           //  escreve = new PrintWriter(arq);
+                            
                        }
                        
                        s = gestor.livres.get(0);
@@ -117,9 +155,8 @@ public class Alocador implements Runnable {
                     Collections.sort(gestor.ocupados);
                 }
 
-                System.out.println("Atendendo requisicao="+valorReq);
-             //   gestor.gravarArq.printf("Estou inserindo a seguinte requisição= %d %n", valorReq);
-                
+                //  escreve.printf("Inserindo a seguinte requisição na Heap=%d %n", valorReq);
+                //  System.out.println("Inserindo a seguinte requisição na Heap="+valorReq);
                  for(int i = 0;i<valorReq; i++)
                 {
                //  System.out.println("**POSICAO="+posicao);
@@ -140,20 +177,27 @@ public class Alocador implements Runnable {
                         a=0;
                         b=0;
            }
+         
+//        arq.close();
+//        escreve.close();
            
         }
         
         long t= 0;
        
+
         if(fila.verifica() == true){
-            
-        t = System.currentTimeMillis();  
-        
-        gestor.setTempoFinal(t);
-        gestor.setVerificacao(1);
+            t=0;    
+            t = System.currentTimeMillis();  
+
+            System.out.println("tempo final="+t);
+            gestor.setTempoFinal(t);
         }
-        
+                             
+        gestor.setVerificacao(1);
+           
         gestor.a.acquire();
+    
     }
     
    

@@ -70,7 +70,7 @@ public class paginaInicial extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel1.setText("TAMANHO DA HEAP");
+        jLabel1.setText("TAMANHO DA HEAP EM PALAVRAS DE 4 BYTES");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("TAMANHO MÁXIMO DA VARIÁVEL DE REQUISIÇÃO");
@@ -307,31 +307,33 @@ public class paginaInicial extends javax.swing.JFrame {
             int requisicao = 0;
             int verifica = 0;
         
-                FileWriter arq = null;
-            try {
-                arq = new FileWriter((new File("arquivoSeq.txt")));
-            } catch (IOException ex) {
-                Logger.getLogger(paginaInicial.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                PrintWriter gravarArq = new PrintWriter(arq);
+//                FileWriter arq = null;
+//            try {
+//                arq = new FileWriter((new File("arquivoSeq.txt")));
+//            } catch (IOException ex) {
+//                Logger.getLogger(paginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//                PrintWriter gravarArq = new PrintWriter(arq);
 
             while(fila.verifica() != true)// enquanto não estiver vazia
             {
 
                 requisicao = fila.removerFilaC();
 
-                verifica = vetorHeap.inserirHeap(requisicao, gravarArq);
+               // verifica = vetorHeap.inserirHeap(requisicao, gravarArq);
+                verifica = vetorHeap.inserirHeap(requisicao);
 
                     while(verifica != 0){
-                        verifica = vetorHeap.inserirHeap(requisicao, gravarArq);
+                 //       verifica = vetorHeap.inserirHeap(requisicao, gravarArq);
+                        verifica = vetorHeap.inserirHeap(requisicao);
                     }
            }
             
-            try {
-                arq.close();
-            } catch (IOException ex) {
-                Logger.getLogger(paginaInicial.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                arq.close();
+//            } catch (IOException ex) {
+//                Logger.getLogger(paginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             
             fimSeq  = System.currentTimeMillis();  
             long tempo = fimSeq - inicioSeq;
@@ -368,6 +370,7 @@ public class paginaInicial extends javax.swing.JFrame {
         
         if(acerto == 1)
         {
+            System.out.println("--------------");
          /*Runnable paralelo = new RunnableHelloWorld();
             paralelo.run();
             Runnable paralelo = new RunnableHelloWorld();
@@ -378,6 +381,18 @@ public class paginaInicial extends javax.swing.JFrame {
             
           //  gestor.inicializarArquivo();
             
+            //instancia arquivo txt
+//            File arquivo = new File( "arquivoParalelo.txt" );
+//                    arquivo.delete();
+//
+//            //cria arquivo txt vazio
+//            try {
+//                arquivo.createNewFile();
+//            } catch (IOException ex) {
+//                Logger.getLogger(paginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            
+            
             
             Runnable t1 = new Alocador(gestor, filaParalela);
             Runnable t2 = new Desalocador(gestor);
@@ -385,12 +400,14 @@ public class paginaInicial extends javax.swing.JFrame {
             
             Thread aloc = new Thread(t1);
             
-            
-            
             Thread desaloca = new Thread(t2);
+            
+
             //inicioSeq = System.currentTimeMillis();  
-            long tempoInicial = System.currentTimeMillis();
-        //    System.out.println("Inicio="+tempoInicial);
+            long tempoInicial = 0;
+            tempoInicial = System.currentTimeMillis();
+            
+            //System.out.println("Tempo inicial="+tempoInicial);
             
             aloc.start();
             desaloca.start();
@@ -407,8 +424,9 @@ public class paginaInicial extends javax.swing.JFrame {
         //    System.out.println("Tempo de execução é="+tempo);
                 
             if(gestor.getVerificacao() == 1){
+                tempoFinal = gestor.getTempoFinal();
+                tempo = tempoFinal - tempoInicial;
                JOptionPane.showMessageDialog(null, "Execução paralela concluída com sucesso! Tempo de="+tempo+"ms");    
-                
             }
             
 //            System.out.println("Sera que a heap foi??");

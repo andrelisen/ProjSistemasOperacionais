@@ -1,1 +1,542 @@
-5 
+Inserindo a seguinte requisição na Heap=58 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=58; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=54;Tamanho disponível=44 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Inserindo a seguinte requisição na Heap=54 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=44 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=54; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=44 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=57;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=57 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=43 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=57; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=58;Tamanho disponível=43 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=58 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=58; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=50;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Inserindo a seguinte requisição na Heap=50 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=54;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Inserindo a seguinte requisição na Heap=54 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=58;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=54; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=58 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=58; e o inicio=0 
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=52;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Inserindo a seguinte requisição na Heap=52 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=52; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=57;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=57 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=43 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=57; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=43 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=47 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=44 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=60 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=60; e o inicio=0 
+Inserindo a seguinte requisição na Heap=60 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=60; e o inicio=0 
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=54;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Inserindo a seguinte requisição na Heap=54 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=54; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=60 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=52;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=60; e o inicio=0 
+Inserindo a seguinte requisição na Heap=52 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=52; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=54;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=54 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=57;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=54; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=57 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=43 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=57; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=58;Tamanho disponível=43 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=58 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=58; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=58;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=58 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=58; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=60 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=60; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=47 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=52;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Inserindo a seguinte requisição na Heap=52 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=52; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=60 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=60; e o inicio=0 
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=50;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Inserindo a seguinte requisição na Heap=50 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=54;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=54 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=46 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=54; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=57;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=57 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=43 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=57; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=43 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=58;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=58 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=50;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=58; e o inicio=0 
+Inserindo a seguinte requisição na Heap=50 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=52;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=52 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=58;Tamanho disponível=48 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=52; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=58 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=58; e o inicio=0 
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=60 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=60; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=58;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=58 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=58; e o inicio=0 
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=50;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Inserindo a seguinte requisição na Heap=50 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=42 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=60 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=50;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=60; e o inicio=0 
+Inserindo a seguinte requisição na Heap=50 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=52;Tamanho disponível=49 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=52 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=48 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=52; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=44 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=52;Tamanho disponível=44 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Inserindo a seguinte requisição na Heap=52 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=44 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=52; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=50;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Inserindo a seguinte requisição na Heap=50 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=50;Tamanho disponível=45 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=50 
+Entrou no if em que a quantidade de elementos contidos na heap é maior que o meu percentual de elementos que posso terna Heap, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=0 
+Inserindo a seguinte requisição na Heap=50 
+Entrou no if em que a quantidade de elementos contidos na heap é maior que o meu percentual de elementos que posso terna Heap, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=50 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=55;Tamanho disponível=50 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=55 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=56;Tamanho disponível=45 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=55; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=56 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=44 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=56; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=53;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=53 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=52;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=53; e o inicio=0 
+Inserindo a seguinte requisição na Heap=52 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=50;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=52; e o inicio=0 
+Inserindo a seguinte requisição na Heap=50 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=54;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=50; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=54 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=46 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=54; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=57;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Inserindo a seguinte requisição na Heap=57 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=57;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=57; e o inicio=0 
+Inserindo a seguinte requisição na Heap=57 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=51;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=57; e o inicio=0 
+Inserindo a seguinte requisição na Heap=51 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=51; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=60 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=57;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=60; e o inicio=0 
+Inserindo a seguinte requisição na Heap=57 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=57;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=57; e o inicio=0 
+Inserindo a seguinte requisição na Heap=57 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=59;Tamanho disponível=40 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=57; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=59 
+Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=60;Tamanho disponível=41 
+Mesmo compactando não tem espaço suficiente, desaloca!
+Desalocando...
+Vou desalocar essa posição da lista: tamanho=59; e o inicio=0 
+Mandei compactar
+Inserindo a seguinte requisição na Heap=60 

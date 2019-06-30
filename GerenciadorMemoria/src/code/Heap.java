@@ -73,7 +73,8 @@ public class Heap {
     }
     
     
-   public int inserirHeap(int valorReq, PrintWriter gravarArq)
+   //public int inserirHeap(int valorReq, PrintWriter gravarArq)
+   public int inserirHeap(int valorReq)
    {
        //Qual será a métrica para retirar segmentos e alocar eles na lista de segmentos livres? Não posso ter mais de 80% do total da memória ocupada
 
@@ -85,6 +86,10 @@ public class Heap {
            //Preciso desalocar pois está MUITO ocupada 
            //Preciso mandar o valor da requisição para poder alocar pois ele retorna direto para o while
           // System.out.println("Memória ocupada cerca de 80% da sua capacidade total...");
+           
+//            gravarArq.printf("Entrou no if em que a quantidade de elementos contidos na heap é maior que o meu percentual de elementos que posso ter"
+//                        + "na Heap, desaloca!%n");
+          // desalocar(gravarArq);
            desalocar();
        }
        
@@ -100,10 +105,15 @@ public class Heap {
        
        if(valorReq > tamanhoDisponivel)
        {
+//            gravarArq.printf("Entrou na condição em que o valor da requisição é maior que o tamanho disponivel; Requisição=%d; Tamanho disponível=%d %n", 
+//                    valorReq, tamanhoDisponivel);
            //System.out.println("Entrou no valor requisicao maior que tamanho disponivel");
            if(somatorio() >= valorReq){
+          //  gravarArq.printf("Mandei compactar%n");
               compacta();
            }else{
+          //  gravarArq.printf("Mesmo compactando não tem espaço suficiente, desaloca!%n");
+          // desalocar(gravarArq);
            desalocar();
            }
            return valorReq;
@@ -122,7 +132,8 @@ public class Heap {
             }
         
         //    System.out.println("SEQUENCIAL:Estou inserindo a seguinte requisição="+valorReq);
-            gravarArq.printf("%d %n", valorReq);
+            //gravarArq.printf("Inserindo a seguinte requisição na Heap=%d %n", valorReq);
+            //System.out.println("Inserindo a seguinte requisição na Heap="+ valorReq);
             
              for(int i = 0;i<valorReq; i++)
             {
@@ -161,6 +172,7 @@ public class Heap {
     }
    
    
+  // public void desalocar(PrintWriter gravarArq)
    public void desalocar()
    {
     //tirar da lista de ocupados e por na lista de livres   
@@ -171,6 +183,8 @@ public class Heap {
            t = s.getTamanho();
            inicio = s.getInicio();
            //System.out.println("Vou desalocar essa posição da lista: tamanho="+t+";e o inicio="+inicio);
+           // gravarArq.printf("Desalocando...%n");
+           // gravarArq.printf("Vou desalocar essa posição da lista: tamanho=%d; e o inicio=%d %n", t, inicio);
 
            
            for(int i = 0; i<t; i++)
